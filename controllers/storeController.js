@@ -2,6 +2,7 @@ let storeModule = require('./../OnlineStore');
 let Store = storeModule.Store;
 let Item = storeModule.Item;
 
+//TODO get this from the database
 let store = new Store('General Store', 'We sell stuff');
 store.addItem(new Item('Grapes', 2.00), 1);
 store.addItem(new Item('Herbal Tea', 4.20), 5);

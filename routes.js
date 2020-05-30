@@ -15,8 +15,8 @@ let routes = function () {
     router.get('/js/*', function (req, res) {
         res.sendFile(`${__dirname}/views/${req.originalUrl}`);
     })
-    router.get('/resources/happy-intersection-01-01.png', function (req, res) {
-        res.sendFile(`${__dirname}/resources/happy-intersection-01-01.png`);
+    router.get('/resources/happy-intersection-01.png', function (req, res) {
+        res.sendFile(`${__dirname}/resources/happy-intersection-01.png`);
     })
 
     router.get('/', function (req, res) {
@@ -27,6 +27,9 @@ let routes = function () {
         res.send(storeController.getInfo());
     })
 
+    router.get('/inventory', function (req, res) {
+        res.send(storeController.getInventory());
+    })
     router.post('/inventory', function (req, res) {
         let data = req.body;
 
