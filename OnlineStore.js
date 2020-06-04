@@ -92,9 +92,10 @@ class Store {
     for (let i = 0; i < this.inventory.length; i++) {
       if (this.inventory[i].name == itemName) {
         this.inventory.splice(i, 1);
+        return true;
       }
     }
-
+    return false;
   }
   //Neatly displays inventory
   displayInventory() {

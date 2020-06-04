@@ -56,10 +56,8 @@ let routes = function () {
     })
 
     router.get('/delete', function (req, res) {
-        let itemname = req.params.itemname;
-
+        let itemname = req.query.itemname;
         storeController.removeItem(itemname);
-
         res.redirect('back');
     })
 

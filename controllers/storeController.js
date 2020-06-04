@@ -18,7 +18,7 @@ let storeController = {
         store.addItem(item, quantity);
     },
     removeItem: function (itemName) {
-        store.removeItem(itemName)
+        store.removeItem(itemName);
     },
     updateInfo: function (newInfo) {
         store.name = newInfo.name;
