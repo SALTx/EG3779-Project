@@ -11,6 +11,9 @@ mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 mongoose.set('debug', true);
 
+//globals (temp)
+let currentStore;
+
 module.exports = {
     connect: function () {
         mongoose.connect('mongodb://localhost/StoreDB', function (e) {
@@ -34,5 +37,14 @@ module.exports = {
             }
             else console.log('Error connecting to MongoDB ', e);
         });
+    },
+    init: function (storeName) {
+        currentStore = storeName;
+    },
+    addItem: function () {
+
+    },
+    sellItem: function () {
+
     }
 }
