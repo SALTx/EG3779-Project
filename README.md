@@ -1,2 +1,2 @@
-# EG3779-ProjectB
+# EG3779-Project
  

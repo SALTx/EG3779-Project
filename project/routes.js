@@ -48,7 +48,7 @@ router.post('/register', function (req, res) {
 
     userController.registerUser(newUser);
     console.log('new user added to DB');
-    res.redirect('/');
+    res.redirect('back');
 })
 
 

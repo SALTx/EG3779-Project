@@ -1,4 +1,6 @@
-let CustomerModel = require('./../models/users/customer');
+// let CustomerModel = require('./../models/users/customer');
+// let ShopOwnerModel = require('./../models/users/shopowner');
+let UserModel = require('./../models/users/user');
 
 class User {
     constructor(user) {
@@ -16,7 +18,7 @@ module.exports = {
         let phoneNumber = user.phoneNumber;
         let image = user.image;
 
-        const newUser = new CustomerModel({
+        const newUser = new UserModel({
             username,
             email,
             password,
@@ -24,10 +26,7 @@ module.exports = {
             image,
         });
 
-        newUser
-            .save()
-            .then(() => res.json("User added!"))
-            .catch((err) => res.status(400).json("Error: " + err));
+        newUser.save({}, function (e) { console.log(e) });
     },
     login: function () {
 
