@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+var userSchema = {};
+var userModel;
 
 //user models
 let CustomerModel = require('./users/customer');
@@ -13,12 +15,23 @@ mongoose.set('debug', true);
 
 module.exports = {
     connect: function () {
-        mongoose.connect('mongodb://localhost/StoreDB', function (e) {
+        mongoose.connect('mongodb://localhost/ShopifyDB', function (e) {
             if (!e) {
-                console.log('Connected to StoreDB');
+                console.log('Connected to ShopifyDB');
+
+                //initialize values
+                userSchema = schema({
+                    username: String,
+                    password: String,
+                    Email: String,
+                    Address: String
+                });
                 let connection = mongoose.connection;
+                userModel = connection.model("Users", userSchema);
+            } else {
+                console.log("Error connecting to Mongo DB");
             }
-            else console.log('Error connecting to MongoDB ', e);
+
         });
     },
 }
