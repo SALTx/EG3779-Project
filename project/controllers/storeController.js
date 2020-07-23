@@ -7,7 +7,7 @@ class Item {
     }
     applyDiscount(discount) {
         if (discount > 100 || discount < 0) {
-            console.log(`Invaldi discount for ${this.name}`);
+            console.log(`Invalid discount for ${this.name}`);
             return 0;
         }
         this.price -= (discount / 100) * this.price;

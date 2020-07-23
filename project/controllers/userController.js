@@ -10,8 +10,13 @@ class User {
     }
 }
 
+function validateRegister(user) {
+
+}
+
 module.exports = {
     registerUser: function (user) {
+        if(validateRegister(user)) { return false; }
         let username = user.username;
         let email = user.email;
         let password = user.password;
@@ -28,7 +33,7 @@ module.exports = {
 
         newUser.save({}, function (e) { console.log(e) });
     },
-    login: function () {
-
+    login: function (username, password) {
+        
     },
 }
