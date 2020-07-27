@@ -27,6 +27,10 @@ const UserSchema = new Schema({
         type: String,
         default: 'default.png',
     }
+    cart: {
+        type: Array,
+        default: [],
+    }
 });
 
 // module.exports = UserSchema;

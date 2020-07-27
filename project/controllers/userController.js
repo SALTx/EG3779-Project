@@ -36,9 +36,12 @@ module.exports = {
     });
   },
   login: function (username, password) {
+    //TODO confirm password but idk why not work
     return UserModel.find({
       username: username,
       password: password,
     }).limit(1);
   },
+  addtoCart: function (item) {},
+  submitFeedback: function (comments) {},
 };
