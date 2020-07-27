@@ -68,6 +68,19 @@ router.post("/login", function (req, res) {
   }
 });
 
+//store stuff
+router.get("/store", function (req, res) {
+  res.sendFile(`${__dirname}/views/store.html`);
+});
+router.get("/inventory", function (req, res) {
+  console.log(storeController.getInventory());
+});
+
+router.get("/user", function (req, res) {
+  //TODO get a way to retrieve username
+  let data = userController.getUserData();
+});
+
 router.get("/fail.html", function (req, res) {
   res.sendfile(`${__dirname}/views/fail.html`);
 });

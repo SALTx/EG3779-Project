@@ -44,4 +44,9 @@ module.exports = {
   },
   addtoCart: function (item) {},
   submitFeedback: function (comments) {},
+  getUserData: function (username) {
+    return UserModel.find({
+      username: username,
+    }).limit(1);
+  },
 };

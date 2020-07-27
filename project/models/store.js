@@ -1,3 +1,2 @@
-const mongoose = require('mongoose');
-const extendedSchema = require('mongoose-extend-schema');
-
+const mongoose = require("mongoose");
+const extendedSchema = require("mongoose-extend-schema");

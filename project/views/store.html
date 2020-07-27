@@ -1,12 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <h1>Welcome to Shopify: Browse through our items on Sale!!</h1>
-    <script src="./js/jquery-3.5.1.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopify | Stores</title>
+    <style>
+      .storeItem {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <header></header>
-    <div id="stores">
+    <!-- <div id="stores">
       <div>
         <img src="default.png" alt="default store" />
         <div>
@@ -14,12 +20,30 @@
           <p>We sell default items</p>
         </div>
       </div>
-    </div>
-    <main></main>
+    </div> -->
+    <div class="inventory"></div>
     <footer></footer>
-    <script src="./js/loadstatic.js" defer></script>
-    <script>
-      //do AJAX call here to fill out stores
+    <script defer>
+      $.ajax({
+        url: "/inventory",
+        method: "get",
+      })
+        .done(function (data) {
+          data.forEach((element) => {
+            console.log(element);
+            $(".inventory").append(`
+                <div class="storeItem">
+                  <h4>${element.name}</h4>
+                  <p>${element.description}</p>
+                  <a href="/updateCart?name=${element.name},quantity=1">Add to cart</a>  
+                </div>
+            `);
+          });
+        })
+        .fail(function (e) {
+          console.log(e.responseText);
+        });
     </script>
+    <script src="./js/loadstatic.js" defer></script>
   </body>
 </html>

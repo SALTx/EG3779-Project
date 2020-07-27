@@ -10,6 +10,23 @@
     <header></header>
     you faieled to logged in
     <footer></footer>
+    <script defer>
+      $.ajax({
+        url: "/inventory",
+        method: "get",
+      })
+        .done(function (data) {
+          data.forEach((element) => {
+            console.log(element);
+            $(".inventory").append(
+              `<li>${element.name}  $${element.price}</li>`
+            );
+          });
+        })
+        .fail(function (e) {
+          console.log(e.responseText);
+        });
+    </script>
     <script src="./js/loadstatic.js" defer></script>
   </body>
 </html>

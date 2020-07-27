@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const extendedSchema = require('mongoose-extend-schema');
+const mongoose = require("mongoose");
+const extendedSchema = require("mongoose-extend-schema");
 
-let User = require('./user');
+let User = require("./user");
 
 const CustomerSchema = extendedSchema(User, {});
-const Customer = mongoose.model('Customer', CustomerSchema);
+const Customer = mongoose.model("Customer", CustomerSchema);
 
 module.exports = Customer;
